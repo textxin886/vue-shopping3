@@ -26,6 +26,7 @@ onMounted(() => {
             </RouterLink>
           </li>
         </ul>
+        <!-- 父组件会把它的 <ul class="goods-list">...</ul> 这段内容塞到HomePanel中含有<slot/>中去 -->
     </HomePanel>
   </template>
   

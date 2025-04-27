@@ -1,37 +1,11 @@
-<!-- //分类 -->
+<!--  //分类 使用onBeforeRouteUpdate-->
 <script setup>
-import {getCategoryAPI} from '@/apis/category'
-import {ref, onMounted, watch,} from 'vue'
-import {useRoute } from 'vue-router'
 import GoodsItem from '../home/components/GoodsItem.vue'
-// 获取数据
-const categoryList = ref([])//定义空数组放数据
+import {useBanner} from './composables/useBanner'//引入useBanner组合式函数获取轮播图数据
+import {useCategory} from './composables/useCategory'//引入useCategory组合式函数获取分类数据
+const {bannerList} = useBanner()//获取轮播图数据
 
-const route = useRoute()//获取路由参数,用于路由传参
-// 获取数据
-const getCategory = async () => {
-    // 调用接口获取数据
-  const res = await getCategoryAPI(route.params.id)//配置路由路径，需要加route
-    categoryList.value = res.result//获取数据
-}
-onMounted(() => {
-  getCategory()//调用函数
-})
-
-watch(() => route.params.id, () => {
-  getCategory()//路由参数变化时重新获取数据
-})
-//获取banner数据
-import {getBannerAPI} from '@/apis/home'
-const bannerList = ref([])
-const getBanner = async () => {
-  const res = await getBannerAPI(2)
-    bannerList.value = res.result
-    // console.log(res.result)
-}
-onMounted(() => {
-  getBanner()
-})
+const {categoryList} = useCategory()//获取分类数据
 
 
 </script>

@@ -20,8 +20,17 @@ onMounted(() => {
 watch(() => route.params.id, () => {
   getCategory()//路由参数变化时重新获取数据
 })
-
-
+//获取banner数据
+import {getBannerAPI} from '@/apis/home'
+const bannerList = ref([])
+const getBanner = async () => {
+  const res = await getBannerAPI(2)
+    bannerList.value = res.result
+    // console.log(res.result)
+}
+onMounted(() => {
+  getBanner()
+})
 
 
 </script>
@@ -36,10 +45,32 @@ watch(() => route.params.id, () => {
           <el-breadcrumb-item>{{ categoryList.name }}</el-breadcrumb-item>
         </el-breadcrumb>
       </div>
+      <!-- 轮播图 -->
+      <div class="home-banner">
+      <el-carousel height="500px">
+      <el-carousel-item v-for="item in bannerList" :key="item.id">
+        <img :src="item.imgUrl" alt="">
+      </el-carousel-item>
+    </el-carousel>
+  </div>
     </div>
   </div>
 </template>
 <style scoped lang="scss">
+.home-banner {
+  width: 1240px;
+  height: 500px;
+  // position: relative;
+  margin: 0 auto;
+  left: 0;
+  top: 0;
+  // z-index: 98;
+
+  img {
+    width: 100%;
+    height: 500px;
+  }
+}
 .top-category {
   h3 {
     font-size: 28px;

@@ -1,11 +1,15 @@
 // banner
 // 地址用到黑马商城的接口https://www.apifox.cn/apidoc/shared/c05cb8d7-e591-4d9c-aff8-11065a0ec1de/api-67132163
 import httpInstance from '@/utils/http';
-// banner//封装
-export function getBannerAPI() {
+// banner//封装--设置传输的值
+export function getBannerAPI(distributionSite=1) {
     return httpInstance(
         {
-            url:'/home/banner'
+            url:'/home/banner',
+            //接收参数
+            params:{
+              distributionSite
+            }
         }
     )
 }

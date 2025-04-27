@@ -7,6 +7,6 @@ export function getCategoryAPI(id) {
         params: {// params 用于定义查询参数（GET 请求）
             id
         }
-        // /category?id=1
+        // /如category?id=1
     })
     } 

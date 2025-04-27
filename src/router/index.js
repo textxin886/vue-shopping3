@@ -22,7 +22,9 @@ const router = createRouter({
   
         },
         {
-          path: '/category', 
+          path: '/category/:id', 
+          //动态路由参数
+          //:id是一个动态路由参数，表示分类的ID
           component: category, //分类组件
   
         },

@@ -23,7 +23,7 @@ const categoryStore = usecategoryStore() //获取状态管理的实例对象
           <RouterLink to="/">首页</RouterLink>
         </li>
         <li class="home" v-for="item in categoryStore.catgoryList" :key="item.id">
-          <RouterLink :to="`/category/${item.id}`">{{ item.name }}</RouterLink>
+          <RouterLink active-class="active" :to="`/category/${item.id}`">{{ item.name }}</RouterLink>
         </li>
       </ul>
 

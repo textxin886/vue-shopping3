@@ -3,6 +3,7 @@
 import {getCategoryAPI} from '@/apis/category'
 import {ref, onMounted, watch,} from 'vue'
 import {useRoute } from 'vue-router'
+import GoodsItem from '../home/components/GoodsItem.vue'
 // 获取数据
 const categoryList = ref([])//定义空数组放数据
 
@@ -53,6 +54,27 @@ onMounted(() => {
       </el-carousel-item>
     </el-carousel>
   </div>
+
+  <div class="sub-list">
+  <h3>全部分类</h3>
+  <ul>
+    <li v-for="i in categoryList.children" :key="i.id">
+      <RouterLink to="/">
+        <img :src="i.picture" />
+        <p>{{ i.name }}</p>
+      </RouterLink>
+    </li>
+  </ul>
+</div>
+<div class="ref-goods" v-for="item in categoryList.children" :key="item.id">
+  <div class="head">
+    <h3>- {{ item.name }}-</h3>
+  </div>
+  <div class="body">
+    <GoodsItem v-for="good in item.goods" :good="good" :key="good.id" />
+  </div>
+</div>
+  
     </div>
   </div>
 </template>

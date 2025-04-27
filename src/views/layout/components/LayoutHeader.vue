@@ -32,7 +32,8 @@ onMounted(() => {
           <RouterLink to="/">首页</RouterLink>
         </li>
         <li class="home" v-for="item in categoryStore.catgoryList" :key="item.id">
-          <RouterLink :to="`/category/${item.id}`">{{item.name}}</RouterLink>
+          <!-- 当路由匹配时自动为元素添加指定的 CSS 类名active-class="active" -->
+          <RouterLink active-class="active" :to="`/category/${item.id}`">{{item.name}}</RouterLink>
         </li>
       </ul>
       <div class="search">

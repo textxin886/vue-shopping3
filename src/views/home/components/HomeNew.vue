@@ -1,3 +1,4 @@
+<!-- 新鲜好物 -->
 <script setup>
 import { onMounted,ref } from 'vue';
 import HomePanel from './HomePanel.vue'; //插槽
@@ -17,7 +18,7 @@ onMounted(() => {
     <HomePanel title="新品推荐" subTitle="新鲜出炉 品质管理">
         <ul class="goods-list">
     <li v-for="item in newList" :key="item.id">
-      <RouterLink to="/">
+      <RouterLink :to="`/detail/${item.id}`" class="goods-item">
         <img :src="item.picture" alt="" />
         <p class="name">{{ item.name }}</p>
         <p class="price">&yen;{{ item.price }}</p>

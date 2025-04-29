@@ -1,3 +1,4 @@
+<!-- 人气推荐 -->
 <script setup>
 import { onMounted,ref } from 'vue';
 import HomePanel from './HomePanel.vue'; //插槽
@@ -18,7 +19,7 @@ onMounted(() => {
     <HomePanel title="人气推荐" subTitle="人气爆款 不容错过">
         <ul class="goods-list">
           <li v-for="item in newList" :key="item.id">
-            <RouterLink to="/">
+            <RouterLink :to="`/detail/${item.id}`">
               <img v-img-lazy="item.picture" alt="">
               <!-- 图片懒加载- -->
               <p class="name">{{ item.title }}</p>

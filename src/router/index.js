@@ -6,6 +6,7 @@ import layout from '@/views/layout/index.vue'
 import home from '@/views/home/index.vue'
 import category from '@/views/category/index.vue'
 import SubCategory from '@/views/SubCategory/index.vue'
+import Detail from '@/views/Detail/index.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   // routes是一个数组，用于定义路由规则
@@ -33,7 +34,11 @@ const router = createRouter({
           path: '/category/sub/:id', 
           //居家下可点击
           component: SubCategory, //分类组件
-  
+        },
+        {
+          path: '/detail/:id', 
+          //居家下可点击
+          component: Detail, //分类组件
         },
       ]
     },

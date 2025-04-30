@@ -2,10 +2,11 @@
 <script setup>
 import {getDetail} from '@/apis/detail' //引用商品详情接口
 import {ref,onMounted } from 'vue'
-import XtxSku from '@/components/XtxSku/index.vue' //引入小兔鲜组件
+/*用全局注册组件了，就不用导入了 import XtxSku from '@/components/XtxSku/index.vue' //引入小兔鲜组件
+import ImageView from '@/components/imageView/index.vue' //引入图片预览组件 */
 import {useRoute} from 'vue-router' //引入路由传入参数
 import DetailHot from './components/DetailHot.vue' //引入热销商品组件
-import ImageView from '@/components/imageView/index.vue' //引入图片预览组件
+
 const goods = ref({})
 const route = useRoute() //获取路由对象
 const getGoods = async () => {
@@ -80,7 +81,7 @@ const addCart = () => {
           <div class="goods-info">
             <div class="media" >
               <!-- 图片预览区 -->
-              <ImageView :imageList="goods.mainPictures"/>
+              <XtximageView :imageList="goods.mainPictures"/>
               <!-- 统计数量 -->
               <ul class="goods-sales">
                 <li>

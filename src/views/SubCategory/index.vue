@@ -38,16 +38,16 @@ const tabChange = () => {
   getGoodsList()
 }
 //加载更多数据
+const disabled = ref(false)
 const load = async () => {
   reqData.value.page += 1
   const res = await getSubCategoryAPI(reqData.value)
   goodsList.value.push(...goodsList.value,...res.result.items)
-//加载完毕
-
-  if (res.result.items.length ==0) {
-    disabled = true
+  if (res.result.items.length === 0) {
+    disabled.value = true
   }
 }
+
 
 </script>
 <template>
